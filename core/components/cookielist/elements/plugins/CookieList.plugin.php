@@ -73,7 +73,7 @@ if($addValue || $removeValue) {
     $value = implode(',', $cookieValues);
     $duration = time() + $modx->getOption('cookielist.cookie.duration',null,2592000);
     setcookie($cookieName, $value, $duration, '', false, false);
-    $modx->sendRedirect($url);
+    $modx->sendRedirect($url,array('responseCode' => 'HTTP/1.1 301 Moved Permanently'));
 }
 
 return '';
